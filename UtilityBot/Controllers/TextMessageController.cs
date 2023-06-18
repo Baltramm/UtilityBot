@@ -30,7 +30,7 @@ namespace UtilityBot.Controllers
             {
                 case "/start":
 
-                    // Объект, представляющий кноки
+                    
                     var buttons = new List<InlineKeyboardButton[]>();
                     buttons.Add(new[]
                     {
@@ -41,7 +41,7 @@ namespace UtilityBot.Controllers
                         InlineKeyboardButton.WithCallbackData($" Подсчет суммы" , $"sum")
                     });
 
-                    // передаем кнопки вместе с сообщением (параметр ReplyMarkup)
+                    
                     await _telegramClient.SendTextMessageAsync(message.Chat.Id, $"<b>  Выберите действие: </b> {Environment.NewLine}", 
                          cancellationToken: ct, parseMode: ParseMode.Html, replyMarkup: new InlineKeyboardMarkup(buttons));
 

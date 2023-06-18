@@ -18,14 +18,14 @@ namespace UtilityBot
         {
             Console.OutputEncoding = Encoding.Unicode;
 
-            // Объект, отвечающий за постоянный жизненный цикл приложения
+            
             var host = new HostBuilder()
-                .ConfigureServices((hostContext, services) => ConfigureServices(services)) // Задаем конфигурацию
-                .UseConsoleLifetime() // Позволяет поддерживать приложение активным в консоли
-                .Build(); // Собираем
+                .ConfigureServices((hostContext, services) => ConfigureServices(services)) 
+                .UseConsoleLifetime() 
+                .Build(); 
 
             Console.WriteLine("Сервис запущен");
-            // Запускаем сервис
+          
             await host.RunAsync();
             Console.WriteLine("Сервис остановлен");
         }
@@ -43,7 +43,7 @@ namespace UtilityBot
 
             services.AddSingleton<IStorage, MemoryStorage>();
 
-            // Подключаем контроллеры сообщений и кнопок
+           
             services.AddTransient<DefaultController>();
             services.AddTransient<TextMessageController>();
             services.AddTransient<InlineKeyboardController>();
